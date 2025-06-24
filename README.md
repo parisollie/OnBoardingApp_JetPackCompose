@@ -14,6 +14,8 @@ This application contains the following knowledge:
 
 - Animations
 
+- SplashScreen
+
 ## Dependencies
 
 - OnBoarding -> Salen una sola vez (implementation 'com.google.accompanist:accompanist-pager:0.15.0')
