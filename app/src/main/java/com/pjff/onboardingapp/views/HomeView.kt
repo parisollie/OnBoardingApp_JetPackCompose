@@ -12,10 +12,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-//Vid 105 agregamos el nav controller
+// Paso 4.6 agregamos el nav controller
 fun HomeView(navController: NavController){
     Column(
-        //Vid 104
+        //V-104 - paso 3.0
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()

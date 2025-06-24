@@ -16,14 +16,13 @@ import androidx.navigation.NavController
 import com.pjff.onboardingapp.R
 import kotlinx.coroutines.delay
 
-//Vid 108
+//V-108, paso 6.0 Splash screen
 @Composable
 fun SplashScreen(navController: NavController, store: Boolean){
 
-    //vid 108
+    //Paso 6.3
     var screen by remember { mutableStateOf("") }
 
-    //
     screen = if(store) { "Home" } else { "OnBoarding" }
 
     LaunchedEffect(key1 = true ){
@@ -34,6 +33,7 @@ fun SplashScreen(navController: NavController, store: Boolean){
     }
 
     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
+        //Ponemos la imagen del splash
         Image(painter = painterResource(id = R.drawable.emoji), contentDescription = "Logo")
     }
 

@@ -21,8 +21,9 @@ import kotlinx.coroutines.launch
 fun ButtonFinish(
     //current page ,página en la que encontramos.
     currentPage: Int,
+    //V-105,paso 4.0 agregamos el nav controller
     navController: NavController,
-    //Vid 107, ponemos store : StoreBoarding
+    // Paso 5.3, ponemos store : StoreBoarding
     store : StoreBoarding
 ){
         //Paso 1.4
@@ -34,13 +35,13 @@ fun ButtonFinish(
         ) {
             if (currentPage == 2){
                 OutlinedButton(onClick = {
-                    //Vd 107
+                    //Paso 5.10
                     CoroutineScope(Dispatchers.IO).launch {
                         store.saveBoarding(true)
                     }
-                    //Vid 105 agregamos el nav controller
+                    // Paso 4.8 agregamos el nav controller
                     navController.navigate("Home"){
-                        //atras de nosotros no hay nada ,ya no nos regresar menú.
+                        //Para que ya no nos regrese al onboarding.
                         popUpTo(0)
                     }
                 }) {

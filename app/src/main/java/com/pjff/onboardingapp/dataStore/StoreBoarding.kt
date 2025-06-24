@@ -9,7 +9,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-//Vid 106
+//V-106,Paso 5.0 , Creamos el DataStore.
 class StoreBoarding(private val context: Context) {
 
     companion object{
@@ -21,7 +21,6 @@ class StoreBoarding(private val context: Context) {
         .map { preference ->
             preference[STORE_BOARD] ?: false
         }
-
 
     suspend fun saveBoarding(value: Boolean){
         context.dataStore.edit { preferences ->

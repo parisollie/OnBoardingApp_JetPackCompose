@@ -22,32 +22,36 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 
+//V-101,Paso 2.0
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun OnBoardingPager(
-    //Vid 101 ,
+    //Ponemos sus parametros , traemos el page data
     item: List<PageData>,
     pagerState: PagerState,
     modifier: Modifier = Modifier,
-    //Vid 105
+    //Paso 4.1 agregamos el navController
     navController: NavController,
+    //Paso 5.4 agregamos el store
     store: StoreBoarding
 ) {
+    // Paso 2.1
     Box(modifier = modifier) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             HorizontalPager(state = pagerState) { page ->
-                //Vid 101 , ponemos lo que correspondera a cada imagen
+                // V-102, Paso 2.4 Ponemos lo que correspondera a cada imágen.
                 Column(
                     modifier = Modifier
                         .padding(60.dp)
                         .fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    //La imágen que descargamos.
+                    // La imágen que descargamos.
                     LoaderData(
                         modifier = Modifier
                             .size(200.dp)
                             .fillMaxWidth()
+                            // Ponemos el indice que necesitamos item[page]
                             .align(alignment = Alignment.CenterHorizontally), item[page].image
                     )
                     Text(
@@ -64,14 +68,21 @@ fun OnBoardingPager(
                         fontWeight = FontWeight.Light,
                         fontSize = 20.sp
                     )
-                }
+                } //Column
             }
-            //Vid 100, le daremos el numero de páginas que creemos
+            // Paso 2.2,le daremos el numero de páginas que creamos.
             PagerIndicator(item.size, pagerState.currentPage)
         }
+        // Paso 2.3
         Box(modifier = Modifier.align(Alignment.BottomCenter)) {
-            //Vid 100 y vid 105, agregamos el navController
-            ButtonFinish(pagerState.currentPage, navController, store)
+
+            ButtonFinish(
+                pagerState.currentPage,
+                //Paso 4.2, agregamos el navController.
+                navController,
+                //Paso 5.5 agregamos el store
+                store
+            )
         }
     }
 }

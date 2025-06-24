@@ -15,14 +15,20 @@ import com.google.accompanist.pager.rememberPagerState
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-//Vid 103,Vid 105, agregamos el navController: NavController
-fun MainOnBoarding(navController: NavController, store: StoreBoarding) {
+// V-103, Paso 2.5
+fun MainOnBoarding(
+    // Paso 4.3, agregamos el navController: NavController
+    navController: NavController,
+    // Paso 5.6
+    store: StoreBoarding
+) {
+    // Paso 2.6
     val items = ArrayList<PageData>()
 
     items.add(
-        //Page data ,para que nos traiga los datos.
+        // Page data ,para que nos traiga los datos.
         PageData(
-            //Llamamos nuestras imagánes que descargamos.
+            // Llamamos nuestras imagánes que descargamos.
             R.raw.page1,
             "Title 1",
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod"
@@ -45,25 +51,26 @@ fun MainOnBoarding(navController: NavController, store: StoreBoarding) {
         )
     )
 
+    //Paso 2.7
     val pagerState = rememberPagerState(
-        //sacamos el numero de paginas
+        // Sacamos el numero de páginas del array que son 3
         pageCount = items.size,
-        //0,1,2,
+        // 0,1,2,
         initialOffscreenLimit = 2,
         infiniteLoop = false,
         initialPage = 0
     )
 
-    //Mandamos a llamar a la pagina
+    // Mandamos a llamar a la página
     OnBoardingPager(
         item = items, pagerState = pagerState, modifier = Modifier
             .fillMaxWidth()
-            //Vid 104, al crear un navmanager nos empuja  a la mitad , con esto lo arreglamos
+            // Paso 3.6, al crear un navmanager nos empuja  a la mitad , con esto lo arreglamos
             .fillMaxHeight()
             .background(Color.White),
-        //Vid 105
+        // Paso 4.4
         navController,
-        //Vid 107
+        // Paso 5.7
         store
     )
 

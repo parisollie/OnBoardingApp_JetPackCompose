@@ -11,29 +11,39 @@ import com.pjff.onboardingapp.onBoardViews.MainOnBoarding
 import com.pjff.onboardingapp.views.HomeView
 import com.pjff.onboardingapp.views.SplashScreen
 
-
 @Composable
-//Vid 104
+// Paso 3.1, creamos el nav manager
 fun NavManager(){
-    //Vid 107
+    // V-107, paso 5.1, implementacion del dataStore
     val context = LocalContext.current
     val dataStore = StoreBoarding(context)
     val store = dataStore.getBoarding.collectAsState(initial = false)
 
-    //vid 104
+    // Paso 3.2
     val navController = rememberNavController()
-    //Vid 105 agregamos el nav controller
-    //Vid 106,si es true vaos al home y sino a splash
-    NavHost(navController, startDestination = if(store.value) "Home" else "Splash" ){
+
+    NavHost(
+        // Paso 3.3 agregamos el nav controller
+        navController,
+        // Paso 5.2,si es true vamos al home y Paso 6.2,sino a splash.
+        startDestination = if(store.value) "Home" else "Splash"
+    ){
+        // Paso 3.4
         composable("OnBoarding"){
-            //Vid 107,ponemos dataStore
-            MainOnBoarding(navController, dataStore)
+
+            MainOnBoarding(
+                // Paso 4.5
+                navController,
+                // Paso 5.8,ponemos dataStore
+                dataStore)
         }
+
         composable("Home"){
+            // Paso 4.7
             HomeView(navController)
         }
 
-        //Vid 108
+        //Paso 6.1
         composable("Splash"){
             SplashScreen(navController, store.value)
         }
