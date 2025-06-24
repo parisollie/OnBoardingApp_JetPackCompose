@@ -15,30 +15,30 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-//Vid 100
+//V-100, Paso 1.5, Indicadores
 fun PagerIndicator(size: Int, currentPage: Int) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.padding(top = 60.dp)
     ) {
         repeat(size){
-            //Vid 100, le pasamos el numero de paginas
+            //Le pasamos el número de páginas.
             Indicator(isSelect = it == currentPage)
         }
     }
 }
 
-
 @Composable
-//Vid 100 , lo creamos de forma individual
+//Lo creamos de forma individual.
 fun Indicator(isSelect: Boolean) {
     Box(
         modifier = Modifier
+            //Separacion de los puntitos
             .padding(5.dp)
             .height(10.dp)
-            .width(25.dp) // 10 circulo
+            .width(25.dp) // 10 es para forma de círculo, 25 alargado.
             .clip(CircleShape)
-            //Los colores de la imagen
+            //Los colores de la imágen, si esta activo sera red sino gris
             .background(if (isSelect) Color.Red else Color.Gray)
     )
 }

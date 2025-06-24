@@ -9,11 +9,12 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 
 @Composable
-//enemos dos parámetros
+//V-98,paso 1.1 Tenemos dos parámetros: Modifier y una imagen
 fun LoaderData(modifier: Modifier, image: Int) {
+
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(image))
 
-    //Vid 98 ,para mandar a llamar las imágenes.
+    //Mandamos a llamar las imágenes.
     LottieAnimation(
         composition = composition,
         iterations = LottieConstants.IterateForever,

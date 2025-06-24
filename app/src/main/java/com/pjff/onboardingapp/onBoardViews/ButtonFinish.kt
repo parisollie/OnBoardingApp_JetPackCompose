@@ -17,13 +17,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @Composable
-//Vid 99, current page ,página en la que encontramos.
-//Vid 107, ponemos store : StoreBoarding
-fun ButtonFinish(currentPage: Int, navController: NavController, store : StoreBoarding){
+//Paso 1.3
+fun ButtonFinish(
+    //current page ,página en la que encontramos.
+    currentPage: Int,
+    navController: NavController,
+    //Vid 107, ponemos store : StoreBoarding
+    store : StoreBoarding
+){
+        //Paso 1.4
         Row(modifier = Modifier
             .padding(bottom = 20.dp)
             .fillMaxWidth(),
-            //Si la uiltima pagna se nuestra  aparecera el botón
+            //Si la última página se nuestra  aparecera el botón.
             horizontalArrangement = if (currentPage != 2) Arrangement.SpaceBetween else Arrangement.Center
         ) {
             if (currentPage == 2){
@@ -34,7 +40,7 @@ fun ButtonFinish(currentPage: Int, navController: NavController, store : StoreBo
                     }
                     //Vid 105 agregamos el nav controller
                     navController.navigate("Home"){
-                        //atras de nosotros no hay nada ,ya no nos regresar menu
+                        //atras de nosotros no hay nada ,ya no nos regresar menú.
                         popUpTo(0)
                     }
                 }) {
